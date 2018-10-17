@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './AppMap.js';
-import './SearchBar.js'
-import './App.css';
+import AppMap from './AppMap.js';
+import SearchBar from './SearchBar.js';
+import ResultsList from './ResultsList.js';
 
 
 class App extends Component {
@@ -9,14 +9,14 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+        
         </header>
 
         <SearchBar />
 
         <AppMap />
 
-        {/* TODO add results list component - child compnent of searchbar? */}
-
+        <ResultsList />
 
         <footer className="App-footer">
         </footer>
