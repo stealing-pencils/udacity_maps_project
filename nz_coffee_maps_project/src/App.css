@@ -2,7 +2,7 @@
   height: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 100px 80px 570px 60px;
+  grid-template-rows: 90px 70px 570px 60px;
   grid-template-areas:
   "h h h h"
   "s s s s"
@@ -20,10 +20,11 @@
   grid-area: s;
 }
 
-/* .map-body {
+.map-body {
   background-color: pink;
   grid-area: m;
-} */
+  display: none;
+}
 
 .list-body {
   background-color: purple;
@@ -51,5 +52,6 @@ footer {
   .map-body {
     background-color: pink;
     grid-area: m;
+    display: block;
   }
 }
