@@ -1,4 +1,8 @@
+/* import fonts from google fonts  */
+@import url('https://fonts.googleapis.com/css?family=Averia+Libre|Source+Serif+Pro');
+
 .App {
+  font-family: 'Source Serif Pro', serif;
   height: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -11,8 +15,10 @@
 }
 
 .App-header {
+  font-family: 'Averia Libre', cursive;
   background-color: orange;
   grid-area: h;
+  font-size: 50px;
 }
 
 .search-bar-body {
