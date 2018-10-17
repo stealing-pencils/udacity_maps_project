@@ -5,7 +5,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div className = 'search-bar-body'>
-      search bar
+      search bar and this is stuff about it
         <div className = 'text-input'>
         </div>
         <button className = 'search-button'>
