@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import './Map.js';
+import './SearchBar.js'
 import './App.css';
+
 
 class App extends Component {
   render() {
