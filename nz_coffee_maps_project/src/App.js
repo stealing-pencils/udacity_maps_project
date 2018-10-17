@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Map.js';
+import './AppMap.js';
 import './SearchBar.js'
 import './App.css';
 
@@ -11,11 +11,9 @@ class App extends Component {
         <header className="App-header">
         </header>
 
-        {/* TODO Add header*/}
+        <SearchBar />
 
-        { /* TODO add SearchBar component}
-
-        {/* TODO add Map component */}
+        <AppMap />
 
         {/* TODO add results list component - child compnent of searchbar? */}
 
