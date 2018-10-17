@@ -1,0 +1,15 @@
+header {
+  background-color: orange;
+}
+
+.search-bar-body {
+  background-color: lightblue;
+}
+
+.map-body {
+  background-color: pink;
+}
+
+.list-body {
+  background-color: purple;
+}

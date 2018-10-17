@@ -5,8 +5,7 @@ class ResultsList extends Component {
   render() {
     return (
       <div className= 'list-body'>
-        <div className = 'scrollbar'>
-        </div>
+      results list
         <header className = 'results-header-body'>
           <div className = 'results-title'>
           </div>
