@@ -16,6 +16,7 @@
 
 .App-header {
   font-family: 'Averia Libre', cursive;
+  text-align: center;
   background-color: orange;
   grid-area: h;
   font-size: 50px;
