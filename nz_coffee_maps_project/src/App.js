@@ -17,7 +17,8 @@ class App extends Component {
         {/* TODO add results list component - child compnent of searchbar? */}
 
 
-        { /* TODO Add footer*/}
+        <footer className="App-footer">
+        </footer>
 
       </div>
     );
