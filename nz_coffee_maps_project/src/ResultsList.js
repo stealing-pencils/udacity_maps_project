@@ -4,8 +4,18 @@ import React, { Component } from 'react';
 class ResultsList extends Component {
   render() {
     return (
-
-
+      <div className= 'list-body'>
+        <div className = 'scrollbar'>
+        </div>
+        <header className = 'results-header-body'>
+          <div className = 'results-title'>
+          </div>
+          <button className = 'close-results-list'>
+          </button>
+        </header>
+        <div className = 'search-results-body'>
+        </div>
+      </div>
     )
   }
 }
