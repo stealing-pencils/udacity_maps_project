@@ -14,8 +14,8 @@ clientSecret: 'TQTIW2FA04GLWPHBWBCK20YFKRNZ0H25PRRCTRANBZWWUTTG'
 });
 
 var params = {
-"ll": "37.7749,-122.4194",
-"query": 'Blue Bottle'
+"near": "San Francisco, CA",
+"query": 'coffee'
 };
 
 class App extends Component {
