@@ -3,18 +3,45 @@ import AppMap from './AppMap.js';
 import SearchBar from './SearchBar.js';
 import ResultsList from './ResultsList.js';
 import './App.css';
-import SquareAPI from './API/index.js';
+// import SquareAPI from './API/';
+// import ReactDOM from 'react-dom';
 
+
+
+var foursquare = require('react-foursquare')({
+clientID: 'OVXN3KG3ITFHVC2XKVARXSTXTSHRLL0OVRIUQCQE53WMPOUO',
+clientSecret: 'TQTIW2FA04GLWPHBWBCK20YFKRNZ0H25PRRCTRANBZWWUTTG'
+});
+
+var params = {
+"ll": "37.7749,-122.4194",
+"query": 'Blue Bottle'
+};
 
 class App extends Component {
 
-  conponentDidMount(){
-    SquareAPI.search({
-      near:"AUSTIN, TX",
-      query: "tacos",
-      limit: 10
-    }).then(results => console.log(results));
-  }
+  // componentDidMount(){
+  //   SquareAPI.search({
+  //     near:"AUSTIN, TX",
+  //     query: "tacos",
+  //     limit: 10
+  //   }).then(results => console.log(results));
+  // }
+  constructor(props) {
+       super(props);
+       this.state = {
+         items: []
+       };
+     }
+
+    componentDidMount() {
+      foursquare.venues.getVenues(params)
+        .then(res=> {
+          this.setState({ items: res.response.venues });
+          console.log(this.state.items)
+        });
+    }
+
 
   render() {
 
@@ -28,7 +55,8 @@ class App extends Component {
 
         <AppMap />
 
-        <ResultsList />
+        <ResultsList
+        />
 
         <footer className="App-footer">
         </footer>
