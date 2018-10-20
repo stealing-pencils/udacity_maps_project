@@ -14,7 +14,38 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
 ))
 
 
+var foursquare = require('react-foursquare')({
+clientID: 'OVXN3KG3ITFHVC2XKVARXSTXTSHRLL0OVRIUQCQE53WMPOUO',
+clientSecret: 'TQTIW2FA04GLWPHBWBCK20YFKRNZ0H25PRRCTRANBZWWUTTG'
+});
+
+var params = {
+"near": "Auckland, NZ",
+"query": 'coffee'
+};
+
+
 class AppMap extends Component {
+
+  state = {
+    markers: []
+  }
+
+  constructor(props) {
+       super(props);
+       this.state = {
+         venues: []
+       };
+     }
+
+    componentDidMount() {
+      foursquare.venues.getVenues(params)
+        .then(res=> {
+          this.setState({ venues: res.response.venues });
+          console.log(this.state.venues)
+        });
+    }
+
   render() {
     return (
       <div className= 'map-body'>

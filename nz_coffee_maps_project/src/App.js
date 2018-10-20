@@ -7,17 +7,6 @@ import './App.css';
 // import ReactDOM from 'react-dom';
 
 
-
-var foursquare = require('react-foursquare')({
-clientID: 'OVXN3KG3ITFHVC2XKVARXSTXTSHRLL0OVRIUQCQE53WMPOUO',
-clientSecret: 'TQTIW2FA04GLWPHBWBCK20YFKRNZ0H25PRRCTRANBZWWUTTG'
-});
-
-var params = {
-"near": "Auckland, NZ",
-"query": 'coffee'
-};
-
 class App extends Component {
 
   // componentDidMount(){
@@ -27,21 +16,6 @@ class App extends Component {
   //     limit: 10
   //   }).then(results => console.log(results));
   // }
-  constructor(props) {
-       super(props);
-       this.state = {
-         venues: []
-       };
-     }
-
-    componentDidMount() {
-      foursquare.venues.getVenues(params)
-        .then(res=> {
-          this.setState({ venues: res.response.venues });
-          console.log(this.state.venues)
-        });
-    }
-
 
   render() {
 
