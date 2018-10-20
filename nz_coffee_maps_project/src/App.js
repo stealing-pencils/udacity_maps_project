@@ -30,15 +30,15 @@ class App extends Component {
   constructor(props) {
        super(props);
        this.state = {
-         items: []
+         venues: []
        };
      }
 
     componentDidMount() {
       foursquare.venues.getVenues(params)
         .then(res=> {
-          this.setState({ items: res.response.venues });
-          console.log(this.state.items)
+          this.setState({ venues: res.response.venues });
+          console.log(this.state.venues)
         });
     }
 

@@ -6,6 +6,7 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-map
 const MyMapComponent = withScriptjs(withGoogleMap((props) =>
   <GoogleMap
     defaultZoom={12}
+    // Center of map set to Auckland, NZ
     defaultCenter={{ lat: -36.848461, lng: 174.763336 }}
   >
     {props.isMarkerShown && <Marker position={{ lat: -36.848461, lng: 174.763336 }} />}
