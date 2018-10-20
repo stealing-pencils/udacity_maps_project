@@ -28,23 +28,17 @@ var params = {
 class AppMap extends Component {
 
   state = {
-    markers: []
+    markers: [],
+    venues: []
   }
 
-  constructor(props) {
-       super(props);
-       this.state = {
-         venues: []
-       };
-     }
-
-    componentDidMount() {
-      foursquare.venues.getVenues(params)
-        .then(res=> {
-          this.setState({ venues: res.response.venues });
-          console.log(this.state.venues)
-        });
-    }
+  componentDidMount() {
+    foursquare.venues.getVenues(params)
+      .then(res=> {
+        this.setState({ venues: res.response.venues });
+        console.log(this.state.venues)
+      });
+  }
 
   render() {
     return (
