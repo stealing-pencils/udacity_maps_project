@@ -14,7 +14,7 @@ clientSecret: 'TQTIW2FA04GLWPHBWBCK20YFKRNZ0H25PRRCTRANBZWWUTTG'
 });
 
 var params = {
-"near": "San Francisco, CA",
+"near": "Auckland, NZ",
 "query": 'coffee'
 };
 
