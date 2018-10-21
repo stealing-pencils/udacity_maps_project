@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 
-
-
-
 var foursquare = require('react-foursquare')({
 clientID: 'OVXN3KG3ITFHVC2XKVARXSTXTSHRLL0OVRIUQCQE53WMPOUO',
 clientSecret: 'TQTIW2FA04GLWPHBWBCK20YFKRNZ0H25PRRCTRANBZWWUTTG'
@@ -35,6 +32,7 @@ class AppMap extends Component {
   }
 
 
+
   render() {
     console.log(this.state.venues)
 
@@ -42,6 +40,7 @@ class AppMap extends Component {
       width: '100%',
       height: '100%'
     }
+
 
     return (
       <div className= 'map-body'>
