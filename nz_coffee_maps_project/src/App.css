@@ -7,6 +7,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 90px 70px 570px 60px;
+
   grid-template-areas:
   "h h h h"
   "s s s s"

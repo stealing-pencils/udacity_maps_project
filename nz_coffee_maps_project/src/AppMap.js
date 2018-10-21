@@ -9,7 +9,7 @@ const MyMapComponent = withScriptjs(withGoogleMap((props) =>
     // Center of map set to Auckland, NZ
     defaultCenter={{ lat: -36.848461, lng: 174.763336 }}
   >
-    {props.isMarkerShown && <Marker position={{ lat: -36.848461, lng: 174.763336 }} />}
+    {/*{props.isMarkerShown && <Marker position={{ lat: -36.848461, lng: 174.763336 }} />}*/}
   </GoogleMap>
 ))
 
@@ -25,6 +25,7 @@ var params = {
 };
 
 
+
 class AppMap extends Component {
 
   state = {
@@ -32,15 +33,19 @@ class AppMap extends Component {
     venues: []
   }
 
+
+
   componentDidMount() {
     foursquare.venues.getVenues(params)
       .then(res=> {
         this.setState({ venues: res.response.venues });
-        console.log(this.state.venues)
       });
   }
 
+
   render() {
+    console.log(this.state.venues)
+
     return (
       <div className= 'map-body'>
 
@@ -51,6 +56,7 @@ class AppMap extends Component {
           containerElement={<div style={{ height: `570px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
         />
+
         <div className= 'third-party-api-reference'>
         </div>
       </div>
