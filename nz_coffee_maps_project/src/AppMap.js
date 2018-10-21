@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 
-// creates google map
-const MyMapComponent = withScriptjs(withGoogleMap((props) =>
-  <GoogleMap
-    defaultZoom={12}
-    // Center of map set to Auckland, NZ
-    defaultCenter={{ lat: -36.848461, lng: 174.763336 }}
-  >
-    {/*{props.isMarkerShown && <Marker position={{ lat: -36.848461, lng: 174.763336 }} />}*/}
-  </GoogleMap>
-))
+
 
 
 var foursquare = require('react-foursquare')({
@@ -30,7 +21,8 @@ class AppMap extends Component {
 
   state = {
     markers: [],
-    venues: []
+    venues: [],
+    selectedPlace: []
   }
 
 
@@ -46,17 +38,30 @@ class AppMap extends Component {
   render() {
     console.log(this.state.venues)
 
+    const style = {
+      width: '100%',
+      height: '100%'
+    }
+
     return (
       <div className= 'map-body'>
-
-        <MyMapComponent
-          isMarkerShown
-          googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBJ39aLUnpQEi-Ewf6EIIKguFlX-z_SNbw"
-          loadingElement={<div style={{ height: `100%` }} />}
-          containerElement={<div style={{ height: `570px` }} />}
-          mapElement={<div style={{ height: `100%` }} />}
-        />
-
+        <Map
+        google={this.props.google}
+        style={style}
+        initialCenter={{
+          lat: -36.848461,
+          lng: 174.763336
+        }}
+        zoom={12}
+        >
+          <Marker onClick={this.onMarkerClick}
+              name={'Current location'} />
+          <InfoWindow onClose={this.onInfoWindowClose}>
+              <div>
+                <h1>{this.state.selectedPlace.name}</h1>
+              </div>
+          </InfoWindow>
+        </Map>
         <div className= 'third-party-api-reference'>
         </div>
       </div>
@@ -64,4 +69,6 @@ class AppMap extends Component {
   }
 }
 
-export default AppMap;
+export default GoogleApiWrapper({
+  apiKey: ("AIzaSyBJ39aLUnpQEi-Ewf6EIIKguFlX-z_SNbw")
+})(AppMap)

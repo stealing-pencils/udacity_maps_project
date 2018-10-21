@@ -49,7 +49,7 @@ footer {
     height: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 120px 60px 570px 60px;
+    grid-template-rows: 120px 60px 920px 60px;
     grid-template-areas:
     "h h h h"
     "s s s s"
