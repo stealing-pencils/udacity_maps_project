@@ -34,6 +34,7 @@ class AppMap extends Component {
 
 
   render() {
+
     console.log(this.state.venues)
 
 
@@ -42,12 +43,16 @@ class AppMap extends Component {
       width: '100%'
     }
 
+    if (!this.props.loaded) {
+      return <div>Loading...</div>
+    }
 
     return (
 
         <Map
         google={this.props.google}
         style={style}
+        className = {'map'}
         initialCenter={{
           lat: -36.848461,
           lng: 174.763336
