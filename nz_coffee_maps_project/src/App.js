@@ -16,9 +16,9 @@ class App extends Component {
         </header>
 
         <SearchBar />
-
-        <AppMap />
-
+        <div className= 'map-body'>
+          <AppMap />
+        </div>
         <ResultsList
         />
 

@@ -36,14 +36,15 @@ class AppMap extends Component {
   render() {
     console.log(this.state.venues)
 
+
     const style = {
-      width: '100%',
-      height: '100%'
+      height: '100%',
+      width: '100%'
     }
 
 
     return (
-      <div className= 'map-body'>
+
         <Map
         google={this.props.google}
         style={style}
@@ -61,9 +62,8 @@ class AppMap extends Component {
               </div>
           </InfoWindow>
         </Map>
-        <div className= 'third-party-api-reference'>
-        </div>
-      </div>
+
+
     )
   }
 }

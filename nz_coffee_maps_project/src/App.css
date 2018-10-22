@@ -28,11 +28,6 @@
   grid-area: s;
 }
 
-.map-body {
-  background-color: pink;
-  grid-area: m;
-  display: none;
-}
 
 .list-body {
   background-color: purple;
@@ -48,6 +43,8 @@ footer {
   .App {
     height: 100%;
     display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 130px 90px 1234px 100px;
     grid-template-areas:
     "h h h h"
     "s s s s"
@@ -58,6 +55,6 @@ footer {
   .map-body {
     background-color: pink;
     grid-area: m;
-    display: block;
+    position: relative;
   }
 }
