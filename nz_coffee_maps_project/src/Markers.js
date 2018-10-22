@@ -15,7 +15,8 @@ var params = {
 class Markers extends Component {
 
   state = {
-    venues: 'placeholder'
+    venues: [],
+    markers: []
   }
 
   componentDidMount() {
@@ -25,12 +26,33 @@ class Markers extends Component {
       });
   }
 
+
   render() {
+    // console.log(this.state.venues[0])
+
+    const markers =
+    this.state.venues.map(venue => {
+      return {
+        lat: venue.location.lat,
+        lng: venue.location.lng,
+        isOpen: false,
+        isVisible: true
+      }
+
+    })
+
+    console.log(markers)
+
     return (
-      <div className = "map">
 
 
-      </div>
+      markers.map((marker, idx) => (
+        <marker key={idx}
+        position = {{lat: marker.lat, lng: marker.lng}}
+        />
+      ))
+
+
     )
   }
 }

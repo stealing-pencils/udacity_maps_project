@@ -9,14 +9,11 @@ import Markers from './Markers'
 class AppMap extends Component {
 
   state = {
-    venues: [],
     selectedPlace: []
   }
 
 
   render() {
-
-    console.log(this.state.venues)
 
 
     const style = {
@@ -40,8 +37,7 @@ class AppMap extends Component {
         }}
         zoom={12}
         >
-          <Marker onClick={this.onMarkerClick}
-              name={'Current location'} />
+          < Markers />
           <InfoWindow onClose={this.onInfoWindowClose}>
               <div>
                 <h1>{this.state.selectedPlace.name}</h1>
