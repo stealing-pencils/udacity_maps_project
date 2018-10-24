@@ -13,7 +13,7 @@ class MyMarkers extends Component {
     return (
       <Marker
         name = {"test"}
-        position = {{ lat : `${eachMarker.lat}`, lng : `${eachMarker.lng}` }}
+        position = {{ lat : `${eachMarker.lat}, lng : ${eachMarker.lng}` }}
       />
 
     )
