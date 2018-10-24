@@ -31,18 +31,16 @@ class AppMap extends Component {
       .then(res=> {
         const {venues} = res.response
         const {center} = res.response.geocode.feature.geometry
-        const {markers} = venues.map(venue => {
+        const markers = venues.map(venue => {
           return {
             lat: venue.location.lat,
             lng: venue.location.lng,
             isOpen: false,
-            isVisible: true
+            isVisible: true,
           }
         })
-        this.setState({venues : venues})
-        this.setState({ center : center})
-        this.setState({ markers : markers})
-        console.log(res)
+        this.setState({venues, center, markers})
+        console.log(this.state.markers)
       });
   }
 
@@ -59,18 +57,6 @@ class AppMap extends Component {
     if (!this.props.loaded) {
       return <div>Loading...</div>
     }
-
-    const markers =
-    this.state.venues.map(venue => {
-      return {
-        name: venue.name,
-        lat: venue.location.lat,
-        lng: venue.location.lng,
-        isOpen: false,
-        isVisible: true,
-      }
-    })
-
 
 
 
