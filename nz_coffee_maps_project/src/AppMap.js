@@ -73,8 +73,10 @@ class AppMap extends Component {
           <Marker
           key = {index}
           className = "markers"
-          position={{lat: marker.lat, lng: marker.lng}}
-          />
+          position={{lat: marker.lat, lng: marker.lng}}>
+            {marker.isOpen && <InfoWindow>
+            </InfoWindow>}
+          </Marker>
         ))}
 
           <InfoWindow onClose={this.onInfoWindowClose}>

@@ -11,10 +11,12 @@ class MyMarkers extends Component {
     console.log(eachMarker)
 
     return (
-      <Marker
+      <Marker>
         name = {"test"}
         position = {{ lat : `${eachMarker.lat}`, lng : `${eachMarker.lng}` }}
-      />
+        <InfoWindow>
+        </InfoWindow>
+      </Marker>
     )
   }
 }
