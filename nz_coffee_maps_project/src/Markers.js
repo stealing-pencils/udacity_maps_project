@@ -12,7 +12,7 @@ var params = {
 "query": 'coffee'
 };
 
-class Markers extends Component {
+class MyMarkers extends Component {
 
   state = {
     venues: [],
@@ -30,31 +30,29 @@ class Markers extends Component {
   render() {
     // console.log(this.state.venues[0])
 
-    const markers =
-    this.state.venues.map(venue => {
-      return {
-        lat: venue.location.lat,
-        lng: venue.location.lng,
-        isOpen: false,
-        isVisible: true
-      }
+    // const markers =
+    // this.state.venues.map(venue => {
+    //   return {
+    //     lat: venue.location.lat,
+    //     lng: venue.location.lng,
+    //     isOpen: false,
+    //     isVisible: true
+    //   }
+    //
+    // })
 
-    })
-
-    console.log(markers)
+    let eachMarker = this.props.marker
+    // console.log(this.props.markers)
 
     return (
+      <Marker
+      name={eachMarker.name}
+      position={{lat: eachMarker.lat, lng: eachMarker.lng}} />
 
-
-      markers.map((marker, idx) => (
-        <marker key={idx}
-        position = {{lat: marker.lat, lng: marker.lng}}
-        />
-      ))
 
 
     )
   }
 }
 
-export default Markers
+export default MyMarkers

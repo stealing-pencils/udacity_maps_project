@@ -1,20 +1,55 @@
 import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import Markers from './Markers'
+import MyMarkers from './Markers'
 
+var foursquare = require('react-foursquare')({
+clientID: 'OVXN3KG3ITFHVC2XKVARXSTXTSHRLL0OVRIUQCQE53WMPOUO',
+clientSecret: 'TQTIW2FA04GLWPHBWBCK20YFKRNZ0H25PRRCTRANBZWWUTTG'
+});
 
+var params = {
+"near": "Auckland, NZ",
+"query": 'coffee'
+};
 
 
 
 class AppMap extends Component {
 
+
+
   state = {
-    selectedPlace: []
+    selectedPlace: [],
+    venues: [],
+    center: [],
+    markers: []
+
+  }
+
+  componentDidMount() {
+    foursquare.venues.getVenues(params)
+      .then(res=> {
+        const {venues} = res.response
+        const {center} = res.response.geocode.feature.geometry
+        const {markers} = venues.map(venue => {
+          return {
+            lat: venue.location.lat,
+            lng: venue.location.lng,
+            isOpen: false,
+            isVisible: true
+          }
+        })
+        this.setState({venues : venues})
+        this.setState({ center : center})
+        this.setState({ markers : markers})
+        console.log(res)
+      });
   }
 
 
-  render() {
 
+
+  render() {
 
     const style = {
       height: '100%',
@@ -24,6 +59,20 @@ class AppMap extends Component {
     if (!this.props.loaded) {
       return <div>Loading...</div>
     }
+
+    const markers =
+    this.state.venues.map(venue => {
+      return {
+        name: venue.name,
+        lat: venue.location.lat,
+        lng: venue.location.lng,
+        isOpen: false,
+        isVisible: true,
+      }
+    })
+
+
+
 
     return (
 
@@ -37,7 +86,15 @@ class AppMap extends Component {
         }}
         zoom={12}
         >
-          < Markers />
+
+
+        <Marker
+        name= {"test"}
+        position={{lat: -36.848461, lng: 174.763336}}
+        />
+
+
+
           <InfoWindow onClose={this.onInfoWindowClose}>
               <div>
                 <h1>{this.state.selectedPlace.name}</h1>
