@@ -55,7 +55,7 @@ class AppMap extends Component {
       return <div>Loading...</div>
     }
 
-    // console.log(this.state.markers)
+    console.log(this.state.markers)
 
     return (
 
@@ -69,15 +69,12 @@ class AppMap extends Component {
         }}
         zoom={12}
         >
-          <div className = "rendered markers">
-            {this.state.markers.map((marker, index) => (
-              <div key={[index]} className="markers">
-                <MyMarkers
-                  marker = {marker}
-                />
-              </div>
-            ))}
-          </div>
+        {this.state.markers.map((marker, index) => (
+          <Marker key = {index}
+          position={{lat: marker.lat, lng: marker.lng}}
+          />
+        ))}
+
           <InfoWindow onClose={this.onInfoWindowClose}>
               <div>
                 <h1>{this.state.selectedPlace.name}</h1>
