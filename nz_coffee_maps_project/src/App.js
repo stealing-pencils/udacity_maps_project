@@ -11,16 +11,18 @@ class App extends Component {
 
     return (
       <div className="App">
+
         <header className="App-header">
         Eat New Zealand
         </header>
 
         <SearchBar />
+
         <div className= 'map-body'>
           <AppMap />
         </div>
-        <ResultsList
-        />
+
+        <ResultsList />
 
         <footer className="App-footer">
         </footer>

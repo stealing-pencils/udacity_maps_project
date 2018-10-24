@@ -70,7 +70,9 @@ class AppMap extends Component {
         zoom={12}
         >
         {this.state.markers.map((marker, index) => (
-          <Marker key = {index}
+          <Marker
+          key = {index}
+          className = "markers"
           position={{lat: marker.lat, lng: marker.lng}}
           />
         ))}
