@@ -6,10 +6,10 @@ class SearchBar extends Component {
     return (
       <div className = 'search-bar-body'>
       search bar and this is stuff about it
-        <div className = 'text-input'>
+        <div className = 'search-field'>
+          <input id="search-location-text" type="text" placeholder="Enter your favorite area!"/>
+          <input id="search-location-button" type="button" value="Zoom"/>
         </div>
-        <button className = 'search-button'>
-        </button>
       </div>
     )
   }
