@@ -9,21 +9,19 @@ clientSecret: 'TQTIW2FA04GLWPHBWBCK20YFKRNZ0H25PRRCTRANBZWWUTTG'
 
 var params = {
 "near": "Auckland, NZ",
-"query": 'coffee'
+"query": 'pies'
 };
 
 
 
 class AppMap extends Component {
 
-
-
   state = {
     selectedPlace: [],
     venues: [],
     center: [],
-    markers: []
-
+    markers: [],
+    isOpen : false
   }
 
   componentDidMount() {
@@ -33,6 +31,7 @@ class AppMap extends Component {
         const {center} = res.response.geocode.feature.geometry
         const markers = venues.map(venue => {
           return {
+            name: venue.name,
             lat: venue.location.lat,
             lng: venue.location.lng,
             isOpen: false,
@@ -41,6 +40,12 @@ class AppMap extends Component {
         })
         this.setState({venues, center, markers})
       });
+  }
+
+  handleMarkerClick = (marker) => {
+    marker.isOpen = true;
+    this.setState({ markers : Object.assign(this.state.markers, marker)})
+    console.log(marker)
   }
 
 
@@ -67,23 +72,22 @@ class AppMap extends Component {
           lat: -36.848461,
           lng: 174.763336
         }}
-        zoom={12}
+        zoom={14}
         >
         {this.state.markers.map((marker, index) => (
           <Marker
           key = {index}
           className = "markers"
-          position={{lat: marker.lat, lng: marker.lng}}>
-            {marker.isOpen && <InfoWindow>
-            </InfoWindow>}
+          position={{lat: marker.lat, lng: marker.lng}}
+          onClick = {() => this.handleMarkerClick(marker)}
+          >
+          if(marker.isOpen == true) {
+            <InfoWindow>
+              <p>Hi there!</p>
+            </InfoWindow>
+          }
           </Marker>
         ))}
-
-          <InfoWindow onClose={this.onInfoWindowClose}>
-              <div>
-                <h1>{this.state.selectedPlace.name}</h1>
-              </div>
-          </InfoWindow>
         </Map>
 
 

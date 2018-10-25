@@ -12,10 +12,14 @@ class MyMarkers extends Component {
 
     return (
       <Marker>
-        name = {"test"}
+        name = name: `${eachMarker.name}`,
         position = {{ lat : `${eachMarker.lat}`, lng : `${eachMarker.lng}` }}
-        <InfoWindow>
-        </InfoWindow>
+        {eachMarker.isOpen && (
+          <InfoWindow>
+          <p>Hi there!</p>
+          </InfoWindow>
+        )}
+
       </Marker>
     )
   }
