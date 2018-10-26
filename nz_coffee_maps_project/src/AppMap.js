@@ -16,12 +16,15 @@ var params = {
 
 class AppMap extends Component {
 
+
+
   state = {
     selectedPlace: [],
     venues: [],
     center: [],
     markers: [],
-    isOpen : false
+    showingInfoWindow : false,
+    activeMarker: {}
   }
 
   componentDidMount() {
@@ -34,19 +37,23 @@ class AppMap extends Component {
             name: venue.name,
             lat: venue.location.lat,
             lng: venue.location.lng,
-            isOpen: false,
             isVisible: true,
+            isOpen: false
           }
         })
         this.setState({venues, center, markers})
       });
   }
 
-  handleMarkerClick = (marker) => {
-    marker.isOpen = true;
-    this.setState({ markers : Object.assign(this.state.markers, marker)})
-    console.log(marker)
+
+  onMarkerClick = (props, marker, e) => {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    })
   }
+
 
 
   render() {
@@ -62,6 +69,7 @@ class AppMap extends Component {
 
     console.log(this.state.markers)
 
+
     return (
 
         <Map
@@ -74,20 +82,23 @@ class AppMap extends Component {
         }}
         zoom={14}
         >
-        {this.state.markers.map((marker, index) => (
-          <Marker
-          key = {index}
-          className = "markers"
-          position={{lat: marker.lat, lng: marker.lng}}
-          onClick = {() => this.handleMarkerClick(marker)}
-          >
-          if(marker.isOpen == true) {
-            <InfoWindow>
-              <p>Hi there!</p>
-            </InfoWindow>
-          }
-          </Marker>
-        ))}
+          {this.state.markers.map((marker, index) => (
+            <Marker
+            key = {index}
+            className = "markers"
+            position={{lat: marker.lat, lng: marker.lng}}
+            onClick = {this.onMarkerClick}
+            />
+
+
+          ))}
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}>
+              <div>
+                <p>Hello</p>
+              </div>
+          </InfoWindow>
         </Map>
 
 
