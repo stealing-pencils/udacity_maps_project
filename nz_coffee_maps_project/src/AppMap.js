@@ -9,7 +9,7 @@ clientSecret: 'TQTIW2FA04GLWPHBWBCK20YFKRNZ0H25PRRCTRANBZWWUTTG'
 
 var params = {
 "near": "Auckland, NZ",
-"query": 'pies'
+"query": 'coffee'
 };
 
 
@@ -23,7 +23,8 @@ class AppMap extends Component {
     venues: [],
     center: [],
     markers: [],
-    openMarker: {}
+    visibleMarker: {},
+    visibleMarkerInfo : {}
   }
 
   componentDidMount() {
@@ -42,6 +43,7 @@ class AppMap extends Component {
           }
         })
         this.setState({venues, center, markers})
+        // console.log(this.state.markers)
       });
   }
 
@@ -50,14 +52,6 @@ class AppMap extends Component {
     this.setState({ markers : Object.assign(this.state.markers, marker)})
     // console.log(marker)
   }
-
-  onMarkerClick = (props, marker, e) => {
-    this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true,
-    })
-  };
 
   onMapClicked = (props) => {
     if (this.state.showingInfoWindow) {
@@ -68,8 +62,23 @@ class AppMap extends Component {
     }
   };
 
-  setMarkerState = () => {
+  onMarkerClick = (props, marker, e) => {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true,
+    })
+    this.logOpenMarker(marker)
+  };
 
+
+
+  logOpenMarker = (marker) => {
+    this.state.markers.forEach((openMarker) => {
+      if(openMarker.id === marker.location) {
+        this.setState({ visibleMarkerInfo : openMarker })
+      }
+    })
   }
 
 
@@ -79,9 +88,9 @@ class AppMap extends Component {
       return <div>Loading...</div>
     }
 
+    console.log(this.state.visibleMarkerInfo)
 
-    // console.log(this.state.markers)
-    console.log(this.state.markers)
+
 
     return (
 
@@ -107,17 +116,14 @@ class AppMap extends Component {
           location = {marker.id}
           onClick={this.onMarkerClick}
           >
-
           </Marker>
-
-
         ))}
+
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}>
-          <p>{this.location}</p>
+          <p>{this.state.visibleMarkerInfo.name}</p>
         </InfoWindow>
-
         </Map>
 
 
