@@ -23,7 +23,6 @@ class AppMap extends Component {
     venues: [],
     center: [],
     markers: [],
-    visibleMarker: {},
     visibleMarkerInfo : {}
   }
 
@@ -39,18 +38,18 @@ class AppMap extends Component {
             lng: venue.location.lng,
             isOpen: false,
             isVisible: true,
-            id: venue.id
+            id: venue.id,
+            address: venue.location.address,
+            formatted_address: venue.location.formattedAddress
           }
         })
         this.setState({venues, center, markers})
-        // console.log(this.state.markers)
       });
   }
 
   handleMarkerClick = (marker) => {
     marker.isOpen = true;
     this.setState({ markers : Object.assign(this.state.markers, marker)})
-    // console.log(marker)
   }
 
   onMapClicked = (props) => {
@@ -72,7 +71,6 @@ class AppMap extends Component {
   };
 
 
-
   logOpenMarker = (marker) => {
     this.state.markers.forEach((openMarker) => {
       if(openMarker.id === marker.location) {
@@ -82,14 +80,13 @@ class AppMap extends Component {
   }
 
 
-  render() {
 
+
+  render() {
+    // console.log(this.state.visibleMarkerInfo.formatted_address)
     if (!this.props.loaded) {
       return <div>Loading...</div>
     }
-
-    console.log(this.state.visibleMarkerInfo)
-
 
 
     return (
@@ -122,7 +119,12 @@ class AppMap extends Component {
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}>
-          <p>{this.state.visibleMarkerInfo.name}</p>
+          <div>
+            <p>{this.state.visibleMarkerInfo.name}</p>
+            {/* TODO : use formatted_address but include line breaks */}
+            <p>{this.state.visibleMarkerInfo.address}</p>
+          </div>
+
         </InfoWindow>
         </Map>
 
