@@ -39,6 +39,36 @@ footer {
   grid-area: f;
 }
 
+/*   Search bar   */
+.search-bar-body {
+  padding: 1% 0% 2% 2%;
+}
+
+.search-bar-body h2 {
+  font-size: 15pt;
+  margin: 0;
+}
+
+#search-location-button {
+  width: 10%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 1.1% 0%;
+    border: none;
+}
+
+input {
+  font-size: 10pt;
+  padding: 1%;
+  padding-right: 20%;
+  margin-top: 0;
+  margin-right: 2%;
+}
+
+
+
+
+
 @media only screen and (min-width: 1024px) {
   .App {
     height: 100%;
