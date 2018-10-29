@@ -11,13 +11,13 @@ class SearchBar extends Component {
     this.setState({ query : query },_=> {
     })
   }
-  
 
   render() {
     console.log(this.state.query)
     return (
-      <div className = 'search-bar-body'>
-        <div className = 'search-bar-title'>
+
+      <div className = "search-bar-body">
+        <div className = "search-bar-title">
           <h2>find what you fancy</h2>
         </div>
         <div className = 'search-field'>

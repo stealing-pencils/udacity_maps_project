@@ -66,15 +66,12 @@ input {
 }
 
 
-
-
-
 @media only screen and (min-width: 1024px) {
   .App {
     height: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 130px 90px 1234px 100px;
+    grid-template-rows: 130px 100px 1134px 100px;
     grid-template-areas:
     "h h h h"
     "s s s s"
@@ -87,4 +84,30 @@ input {
     grid-area: m;
     position: relative;
   }
+}
+
+/*   Search bar   */
+.search-bar-body {
+  padding: 1% 0% 2% 2%;
+}
+
+.search-bar-body h2 {
+  font-size: 14pt;
+  margin: 0;
+}
+
+#search-location-button {
+    width: 10%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.6% 0%;
+    border: none;
+}
+
+input {
+  font-size: 10pt;
+  padding: 0.5%;
+  padding-right: 20%;
+  margin-top: 0;
+  margin-right: 2%;
 }

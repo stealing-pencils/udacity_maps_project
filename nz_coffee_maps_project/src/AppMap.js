@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
+
 var foursquare = require('react-foursquare')({
 clientID: 'OVXN3KG3ITFHVC2XKVARXSTXTSHRLL0OVRIUQCQE53WMPOUO',
 clientSecret: 'TQTIW2FA04GLWPHBWBCK20YFKRNZ0H25PRRCTRANBZWWUTTG'
@@ -78,18 +79,13 @@ class AppMap extends Component {
     })
   }
 
-
-
-
   render() {
     // console.log(this.state.visibleMarkerInfo.formatted_address)
     if (!this.props.loaded) {
       return <div>Loading...</div>
     }
 
-
     return (
-
         <Map
         google={this.props.google}
         style={{width: '100%', height: '100%'}}
@@ -114,20 +110,16 @@ class AppMap extends Component {
           >
           </Marker>
         ))}
-
-        <InfoWindow
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}>
-          <div>
-            <p>{this.state.visibleMarkerInfo.name}</p>
-            {/* TODO : use formatted_address but include line breaks */}
-            <p>{this.state.visibleMarkerInfo.address}</p>
-          </div>
-
-        </InfoWindow>
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}>
+            <div>
+              <p>{this.state.visibleMarkerInfo.name}</p>
+              {/* TODO : use formatted_address but include line breaks */}
+              <p>{this.state.visibleMarkerInfo.address}</p>
+            </div>
+          </InfoWindow>
         </Map>
-
-
     )
   }
 }
