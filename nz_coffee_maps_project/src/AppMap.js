@@ -8,11 +8,9 @@ clientID: 'OVXN3KG3ITFHVC2XKVARXSTXTSHRLL0OVRIUQCQE53WMPOUO',
 clientSecret: 'TQTIW2FA04GLWPHBWBCK20YFKRNZ0H25PRRCTRANBZWWUTTG'
 });
 
-var params = {
-"near": "Auckland, NZ",
-"query": `$"{this.props.query}"`
-};
-
+let params = { "near" : "Auckland, NZ",
+               "query" : "coffee"
+              }
 
 
 class AppMap extends Component {
@@ -26,6 +24,7 @@ class AppMap extends Component {
     markers: [],
     visibleMarkerInfo : {}
   }
+
 
   componentDidMount() {
     foursquare.venues.getVenues(params)
@@ -81,7 +80,7 @@ class AppMap extends Component {
   }
 
   render() {
-    console.log(this.props.query)
+    console.log(this.params)
     if (!this.props.loaded) {
       return <div>Loading...</div>
     }
