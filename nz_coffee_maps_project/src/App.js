@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import AppMap from './AppMap.js';
 import SearchBar from './SearchBar.js';
 import ResultsList from './ResultsList.js';
+import AppMap from './AppMap.js'
 import './App.css';
 
 
@@ -18,12 +18,10 @@ class App extends Component {
 
         <SearchBar />
 
+        <ResultsList />
         <div className= 'map-body'>
           <AppMap />
         </div>
-
-        <ResultsList />
-
         <footer className="App-footer">
         </footer>
 

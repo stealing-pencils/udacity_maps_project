@@ -23,11 +23,9 @@
   font-size: 50px;
 }
 
-.search-bar-body {
-  background-color: lightblue;
-  grid-area: s;
+.map-body {
+  visibility: collapse;
 }
-
 
 .list-body {
   background-color: purple;
@@ -40,11 +38,14 @@ footer {
 }
 
 /*   Search bar   */
-.search-bar-body {
+.search {
   padding: 1% 0% 2% 2%;
+  background-color: lightblue;
+  grid-area: s;
+
 }
 
-.search-bar-body h2 {
+.search h2 {
   font-size: 15pt;
   margin: 0;
 }
@@ -80,6 +81,7 @@ input {
   }
 
   .map-body {
+    visibility: visible;
     background-color: pink;
     grid-area: m;
     position: relative;
@@ -87,11 +89,11 @@ input {
 }
 
 /*   Search bar   */
-.search-bar-body {
+.search {
   padding: 1% 0% 2% 2%;
 }
 
-.search-bar-body h2 {
+.search h2 {
   font-size: 14pt;
   margin: 0;
 }

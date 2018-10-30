@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 
+
 var foursquare = require('react-foursquare')({
 clientID: 'OVXN3KG3ITFHVC2XKVARXSTXTSHRLL0OVRIUQCQE53WMPOUO',
 clientSecret: 'TQTIW2FA04GLWPHBWBCK20YFKRNZ0H25PRRCTRANBZWWUTTG'
@@ -9,7 +10,7 @@ clientSecret: 'TQTIW2FA04GLWPHBWBCK20YFKRNZ0H25PRRCTRANBZWWUTTG'
 
 var params = {
 "near": "Auckland, NZ",
-"query": 'coffee'
+"query": `$"{this.props.query}"`
 };
 
 
@@ -80,7 +81,7 @@ class AppMap extends Component {
   }
 
   render() {
-    // console.log(this.state.visibleMarkerInfo.formatted_address)
+    console.log(this.props.query)
     if (!this.props.loaded) {
       return <div>Loading...</div>
     }
