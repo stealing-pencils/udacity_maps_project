@@ -38,14 +38,14 @@ footer {
 }
 
 /*   Search bar   */
-.search {
+.search-bar-body {
   padding: 1% 0% 2% 2%;
   background-color: lightblue;
   grid-area: s;
 
 }
 
-.search h2 {
+.search-bar-body h2 {
   font-size: 15pt;
   margin: 0;
 }
@@ -89,11 +89,12 @@ input {
 }
 
 /*   Search bar   */
-.search {
+.search-bar-body {
+  grid-area: s;
   padding: 1% 0% 2% 2%;
 }
 
-.search h2 {
+.search-bar-body h2 {
   font-size: 14pt;
   margin: 0;
 }
