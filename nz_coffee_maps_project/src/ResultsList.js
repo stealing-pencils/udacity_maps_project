@@ -15,9 +15,16 @@ class ResultsList extends Component {
           </button>
         </header>
         <ol className = "search-results-body">
-          <li className = "list-item">
-            Hello world
-          </li>
+          {this.props.venues && this.props.venues.map((results, index) => (
+            <li
+            key = {index}
+            className = "list-item">
+              {this.props.name}
+            </li>
+          )
+
+        )}
+
         </ol>
       </div>
     )

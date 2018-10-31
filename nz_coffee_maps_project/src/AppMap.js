@@ -39,7 +39,7 @@ class AppMap extends Component {
 
 
   logOpenMarker = (marker) => {
-    this.state.markers.forEach((openMarker) => {
+    this.props.markers.forEach((openMarker) => {
       if(openMarker.id === marker.location) {
         this.setState({ visibleMarkerInfo : openMarker })
       }
