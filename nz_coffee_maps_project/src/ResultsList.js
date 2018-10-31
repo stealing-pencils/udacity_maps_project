@@ -19,7 +19,7 @@ class ResultsList extends Component {
             <li
             key = {index}
             className = "list-item">
-              {this.props.name}
+              {results.name}
             </li>
           )
 
