@@ -12,8 +12,9 @@ class ResultsList extends Component {
           <button className = 'close-results-list'>
           </button>
         </header>
-        <div className = 'search-results-body'>
-        </div>
+        <ol className = 'search-results-body'>
+          {this.props.query}
+        </ol>
       </div>
     )
   }

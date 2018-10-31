@@ -77,7 +77,6 @@ class App extends Component {
 
         <div className= 'map-body'>
           <AppMap
-          query = {this.state.query}
           markers = {this.state.markers}
           venues = {this.state.venues}
           center = {this.state.center}
@@ -85,7 +84,9 @@ class App extends Component {
         </div>
 
         <div className = "list-body">
-          <ResultsList />
+          <ResultsList
+          query = {this.state.query}
+          />
         </div>
         <footer className="App-footer">
         </footer>

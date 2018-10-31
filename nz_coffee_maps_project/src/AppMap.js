@@ -47,7 +47,7 @@ class AppMap extends Component {
 
   render() {
 
-    console.log(this.props.query)
+    
     if (!this.props.loaded) {
       return <div>Loading...</div>
     }
