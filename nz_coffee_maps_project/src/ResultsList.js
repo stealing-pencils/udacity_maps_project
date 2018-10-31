@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './App.css';
+
 
 
 class ResultsList extends Component {
@@ -12,8 +14,10 @@ class ResultsList extends Component {
           <button className = 'close-results-list'>
           </button>
         </header>
-        <ol className = 'search-results-body'>
-          {this.props.query}
+        <ol className = "search-results-body">
+          <li className = "list-item">
+            Hello world
+          </li>
         </ol>
       </div>
     )

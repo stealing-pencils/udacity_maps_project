@@ -58,7 +58,7 @@ h2 {
     border: none;
 }
 
-input {
+input #search {
   font-size: 10pt;
   padding: 1%;
   padding-right: 20%;

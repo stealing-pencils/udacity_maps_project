@@ -66,7 +66,7 @@ class App extends Component {
           <div className = 'search-field'>
             <input
               id="search-location-text"
-              type="text"
+              type="search"
               placeholder="Enter your favorite area!"
               value={this.state.query}
               onChange={(event) => this.updateQuery(event.target.value)}

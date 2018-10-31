@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import './App.css';
 
 
 class AppMap extends Component {
@@ -47,7 +48,7 @@ class AppMap extends Component {
 
   render() {
 
-    
+
     if (!this.props.loaded) {
       return <div>Loading...</div>
     }
